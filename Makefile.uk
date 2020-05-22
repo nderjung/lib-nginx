@@ -44,12 +44,12 @@ $(eval $(call addlib_s,libnginx,$(CONFIG_LIBNGINX)))
 ################################################################################
 # Sources
 ################################################################################
-LIBNGINX_VERSION = 1.15.6
+LIBNGINX_VERSION = 1.18.0
 LIBNGINX_BASENAME = nginx-$(LIBNGINX_VERSION)
-LIBNGINX_URL = http://nginx.org/download/$(LIBNGINX_BASENAME).tar.gz
+LIBNGINX_URL = https://github.com/nginx/nginx/archive/release-v$(LIBNGINX_VERSION).tar.gz
 LIBNGINX_PATCHDIR = $(LIBNGINX_BASE)/patches
 $(eval $(call fetch,libnginx,$(LIBNGINX_URL)))
-$(eval $(call patch,libnginx,$(LIBNGINX_PATCHDIR),nginx-$(LIBNGINX_VERSION)))
+$(eval $(call patch,libnginx,$(LIBNGINX_PATCHDIR),$(LIBNGINX_BASENAME)))
 
 ################################################################################
 # Helpers
